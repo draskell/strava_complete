@@ -127,3 +127,20 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Personal activity data, credentials, caches, and reports
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+*.sqlite-*
+*.db
+*.db-*
+.env.*
+!.env.example
+config.local.toml
+tokens.json
+data/
+reports/
+imports/
+cache/
+.ruff_cache/
