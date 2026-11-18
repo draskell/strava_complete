@@ -1,0 +1,56 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "strava-complete"
+version = "0.1.0"
+description = "Local, length-based trail coverage estimates from recorded GPS activities"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "branca>=0.8.2",
+    "filelock>=4.2.12",
+    "folium>=1.0.0",
+    "geopandas>=1.2.0",
+    "httpx>=0.28.1",
+    "osmnx>=2.1.2",
+    "platformdirs>=4.14.7",
+    "pyproj>=3.7.2",
+    "requests>=2.34.2",
+    "shapely>=2.2.0",
+    "typer>=0.29.1",
+]
+
+[project.scripts]
+trail-coverage = "strava_complete.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/strava_complete"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.11"
+check_untyped_defs = true
+disallow_untyped_defs = true
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+module = ["geopandas.*", "shapely.*", "folium.*", "osmnx.*", "branca.*"]
+ignore_missing_imports = true
+
+[tool.uv]
+dev-dependencies = [
+    "mypy>=2.4.1",
+    "pytest>=9.2.0",
+    "respx>=0.23.1",
+    "ruff>=0.17.5",
+]

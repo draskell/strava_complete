@@ -1,0 +1,7 @@
+# Copy to the platform's trail-coverage config directory (see README).
+# Prefer STRAVA_CLIENT_ID and STRAVA_CLIENT_SECRET environment variables.
+client_id = "YOUR_CLIENT_ID"
+client_secret = "YOUR_CLIENT_SECRET"
+user_agent = "trail-coverage/0.1 (YOUR_CONTACT_OR_PROJECT_URL)"
+nominatim_url = "https://nominatim.openstreetmap.org/"
+overpass_url = "https://overpass-api.de/api"
